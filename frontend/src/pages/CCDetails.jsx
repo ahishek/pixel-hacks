@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Settings, FileText, Gift, CreditCard, Plus } from 'lucide-react';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
-import CreditCard from '../components/CreditCard';
+import CreditCardComponent from '../components/CreditCard';
 import TransactionHistory from '../components/TransactionHistory';
 import { mockCardData, mockTransactions } from '../data/mock';
 
