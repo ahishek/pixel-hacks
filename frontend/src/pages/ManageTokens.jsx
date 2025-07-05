@@ -8,9 +8,18 @@ import { mockMerchantApps } from '../data/mock';
 
 const ManageTokens = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const newlyCreatedTokens = location.state?.selectedApps || [];
+  
   const [tokenStates, setTokenStates] = useState(
     mockMerchantApps.reduce((acc, app) => {
-      acc[app.id] = { active: Math.random() > 0.3, lastUsed: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000) };
+      // If this app was just created, make it active, otherwise random
+      const wasJustCreated = newlyCreatedTokens.includes(app.id);
+      acc[app.id] = { 
+        active: wasJustCreated ? true : Math.random() > 0.5, 
+        lastUsed: wasJustCreated ? new Date() : new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
+        isNew: wasJustCreated
+      };
       return acc;
     }, {})
   );
