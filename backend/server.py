@@ -11,7 +11,7 @@ import uuid
 from datetime import datetime
 
 # Import new routes
-from routes import cards, tokens, push_provisioning
+from backend.routes import cards, tokens, push_provisioning
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
