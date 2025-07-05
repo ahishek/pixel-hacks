@@ -4,7 +4,7 @@ Card management API endpoints
 
 from fastapi import APIRouter, HTTPException
 from typing import List
-from models.token_models import CardDetails, Transaction, TransactionListResponse
+from backend.models.token_models import CardDetails, Transaction, TransactionListResponse
 from services.mock_data import MOCK_CARD_DATA, MOCK_TRANSACTIONS
 from datetime import datetime
 
