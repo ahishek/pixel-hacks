@@ -9,8 +9,8 @@ from backend.models.token_models import (
     PushProvisioningRequest, PushProvisioningResponse, 
     PushProvisioningResult, TokenStatus, ProvisioningStatus
 )
-from services.visa_service import VisaTokenManagementService
-from services.mock_data import MERCHANT_APPS, MOCK_CARD_DATA
+from backend.services.visa_service import VisaTokenManagementService
+from backend.services.mock_data import MERCHANT_APPS, MOCK_CARD_DATA
 from datetime import datetime
 import logging
 import asyncio
