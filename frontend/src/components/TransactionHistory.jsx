@@ -29,7 +29,7 @@ const TransactionHistory = ({ transactions }) => {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+      <h3 className="text-lg font-semibold text-white">
         Recent Transactions
       </h3>
       {transactions.map((transaction) => (

@@ -135,7 +135,7 @@ const CCDetails = () => {
         <Card className="p-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm">
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-gray-600 dark:text-gray-400">Unspent Amount</span>
+              <span className="text-gray-600 dark:text-gray-400">Current Outstanding</span>
               <span className="text-2xl font-bold text-gray-800 dark:text-gray-200">₹{cardData?.unspent_amount || cardData?.unspentAmount || 0}</span>
             </div>
             <div className="flex justify-between items-center text-sm">

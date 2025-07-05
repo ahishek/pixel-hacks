@@ -1,13 +1,13 @@
 // Mock data for the CC app
 export const MOCK_CARD_DATA = {
   card_number: "4532 1234 5678 9012",
-  card_holder_name: "Arvind Sethuraman",
+  card_holder_name: "SHUBMAN GILL",
   expiry_date: "12/28",
   cvv: "123",
   card_type: "visa",
   available_limit: 65000,
   total_outstanding: 0,
-  next_statement_date: "25 Feb",
+  next_statement_date: "25 July",
   unspent_amount: 0
 };
 
@@ -116,8 +116,8 @@ export const mockSecurityInfo = {
     "HDFC Bank's advanced fraud detection system"
   ],
   logos: [
-    { name: "RBI", src: "/api/placeholder/80/40" },
-    { name: "Visa", src: "/api/placeholder/80/40" },
-    { name: "HDFC", src: "/api/placeholder/80/40" }
+    { name: "RBI", src: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Reserve_Bank_of_India_logo.svg/1200px-Reserve_Bank_of_India_logo.svg.png" },
+    { name: "Visa", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" },
+    { name: "HDFC", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/HDFC_Bank_Logo.svg/2560px-HDFC_Bank_Logo.svg.png" }
   ]
 };
