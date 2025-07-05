@@ -17,7 +17,7 @@ const SuccessState = () => {
   };
 
   const handleManageTokens = () => {
-    navigate('/manage-tokens');
+    navigate('/manage-tokens', { state: { selectedApps } });
   };
 
   return (
