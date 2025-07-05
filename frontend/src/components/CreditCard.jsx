@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Wifi } from 'lucide-react';
 import { Card } from './ui/card';
 
-const CreditCard = ({ cardData }) => {
+const CreditCardComponent = ({ cardData }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showSensitive, setShowSensitive] = useState(false);
 
