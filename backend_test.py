@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, Any, List, Optional
 
 # Get the backend URL from the frontend .env file
-BACKEND_URL = "https://ec5a1883-37fc-474f-a2a9-dfe69ab9c824.preview.emergentagent.com/api"
+BACKEND_URL = "http://localhost:8001/api"
 
 # Test result tracking
 test_results = {
