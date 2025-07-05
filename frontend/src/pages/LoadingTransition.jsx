@@ -30,10 +30,8 @@ const LoadingTransition = () => {
 
     const totalTime = 6000; // 6 seconds total
     const stepTime = totalTime / steps.length;
-    const appTime = stepTime / selectedMerchantApps.length;
 
     let stepIndex = 0;
-    let appIndex = 0;
     let currentProgress = 0;
 
     const interval = setInterval(() => {
@@ -41,14 +39,10 @@ const LoadingTransition = () => {
         setCurrentStep(stepIndex);
         
         if (stepIndex === 2) { // Provisioning step
-          if (appIndex < selectedMerchantApps.length) {
-            setCompletedApps(prev => [...prev, selectedMerchantApps[appIndex].id]);
-            appIndex++;
-            currentProgress += (100 / steps.length) / selectedMerchantApps.length;
-          } else {
-            stepIndex++;
-            currentProgress = ((stepIndex + 1) / steps.length) * 100;
-          }
+          // Complete all apps for this step
+          setCompletedApps(selectedMerchantApps.map(app => app.id));
+          stepIndex++;
+          currentProgress = ((stepIndex + 1) / steps.length) * 100;
         } else {
           stepIndex++;
           currentProgress = (stepIndex / steps.length) * 100;
@@ -61,10 +55,10 @@ const LoadingTransition = () => {
           navigate('/success-state', { state: { selectedApps } });
         }, 500);
       }
-    }, appTime);
+    }, stepTime);
 
     return () => clearInterval(interval);
-  }, [selectedApps, navigate]);
+  }, [selectedApps, navigate, selectedMerchantApps, steps.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-teal-900 flex items-center justify-center p-4">
