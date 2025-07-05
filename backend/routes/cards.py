@@ -17,7 +17,19 @@ async def get_card_details():
     Get credit card details for the logged-in user
     """
     try:
-        return CardDetails(**MOCK_CARD_DATA)
+        # Convert camelCase keys to snake_case for Pydantic model
+        card_data = {
+            "card_number": MOCK_CARD_DATA["cardNumber"],
+            "card_holder_name": MOCK_CARD_DATA["cardHolderName"],
+            "expiry_date": MOCK_CARD_DATA["expiryDate"],
+            "cvv": MOCK_CARD_DATA["cvv"],
+            "card_type": MOCK_CARD_DATA["cardType"],
+            "available_limit": MOCK_CARD_DATA["availableLimit"],
+            "total_outstanding": MOCK_CARD_DATA["totalOutstanding"],
+            "next_statement_date": MOCK_CARD_DATA["nextStatementDate"],
+            "unspent_amount": MOCK_CARD_DATA["unspentAmount"]
+        }
+        return CardDetails(**card_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch card details: {str(e)}")
 
