@@ -82,4 +82,4 @@ const CreditCardComponent = ({ cardData }) => {
   );
 };
 
-export default CreditCard;
+export default CreditCardComponent;
