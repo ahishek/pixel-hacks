@@ -4,7 +4,7 @@ Token management API endpoints
 
 from fastapi import APIRouter, HTTPException
 from typing import List
-from models.token_models import (
+from backend.models.token_models import (
     TokenInfo, TokenListResponse, TokenUpdateRequest, 
     TokenUpdateResponse, TokenStatus
 )
