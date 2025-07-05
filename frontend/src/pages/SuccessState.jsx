@@ -37,10 +37,10 @@ const SuccessState = () => {
           {/* Success Message */}
           <div>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-              Tokens Created Successfully! 🎉
+              Card Saved Successfully! 🎉
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
-              Your secure payment tokens have been provisioned to the selected apps
+              Your card is now saved on the selected merchants. You can now make seamless payments!
             </p>
           </div>
 
