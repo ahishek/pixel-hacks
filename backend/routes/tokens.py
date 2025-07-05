@@ -8,8 +8,8 @@ from backend.models.token_models import (
     TokenInfo, TokenListResponse, TokenUpdateRequest, 
     TokenUpdateResponse, TokenStatus
 )
-from services.visa_service import VisaTokenManagementService
-from services.mock_data import MERCHANT_APPS
+from backend.services.visa_service import VisaTokenManagementService
+from backend.services.mock_data import MERCHANT_APPS
 from datetime import datetime
 import logging
 
