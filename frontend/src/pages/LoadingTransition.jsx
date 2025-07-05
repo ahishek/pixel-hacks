@@ -28,37 +28,27 @@ const LoadingTransition = () => {
       return;
     }
 
-    const totalTime = 6000; // 6 seconds total
-    const stepTime = totalTime / steps.length;
-
+    const progressSteps = [25, 50, 75, 100];
     let stepIndex = 0;
-    let currentProgress = 0;
 
     const interval = setInterval(() => {
       if (stepIndex < steps.length) {
         setCurrentStep(stepIndex);
-        
-        if (stepIndex === 2) { // Provisioning step
-          // Complete all apps for this step
+        setProgress(progressSteps[stepIndex]);
+        if (stepIndex === 2) {
           setCompletedApps(selectedMerchantApps.map(app => app.id));
-          stepIndex++;
-          currentProgress = ((stepIndex + 1) / steps.length) * 100;
-        } else {
-          stepIndex++;
-          currentProgress = (stepIndex / steps.length) * 100;
         }
-        
-        setProgress(currentProgress);
+        stepIndex++;
       } else {
         clearInterval(interval);
         setTimeout(() => {
           navigate('/success-state', { state: { selectedApps } });
         }, 500);
       }
-    }, stepTime);
+    }, 1200); // 1.2s per step for a total of ~5s
 
     return () => clearInterval(interval);
-  }, [selectedApps, navigate, selectedMerchantApps, steps.length]);
+  }, [selectedApps, navigate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-teal-900 flex items-center justify-center p-4">

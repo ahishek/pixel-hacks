@@ -5,12 +5,12 @@ Based on Visa TMS Push Provisioning workflow
 
 from fastapi import APIRouter, HTTPException, BackgroundTasks
 from typing import List
-from backend.models.token_models import (
+from models.token_models import (
     PushProvisioningRequest, PushProvisioningResponse, 
     PushProvisioningResult, TokenStatus, ProvisioningStatus
 )
-from backend.services.visa_service import VisaTokenManagementService
-from backend.services.mock_data import MERCHANT_APPS, MOCK_CARD_DATA
+from services.visa_service import VisaTokenManagementService
+from services.mock_data import MERCHANT_APPS, MOCK_CARD_DATA
 from datetime import datetime
 import logging
 import asyncio

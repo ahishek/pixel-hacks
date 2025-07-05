@@ -1,47 +1,47 @@
 // Mock data for the CC app
-export const mockCardData = {
-  cardNumber: "4532 1234 5678 9012",
-  cardHolderName: "RAKESH VERMA",
-  expiryDate: "12/28",
+export const MOCK_CARD_DATA = {
+  card_number: "4532 1234 5678 9012",
+  card_holder_name: "Arvind Sethuraman",
+  expiry_date: "12/28",
   cvv: "123",
-  cardType: "visa",
-  availableLimit: 65000,
-  totalOutstanding: 0,
-  nextStatementDate: "25 Feb",
-  unspentAmount: 0
+  card_type: "visa",
+  available_limit: 65000,
+  total_outstanding: 0,
+  next_statement_date: "25 Feb",
+  unspent_amount: 0
 };
 
-export const mockTransactions = [
+export const MOCK_TRANSACTIONS = [
   {
-    id: 1,
-    merchant: "Uber",
+    transaction_id: 1,
+    merchant_name: "Uber",
     amount: 100,
-    date: "2024-01-15",
-    type: "ride",
+    transaction_date: "2024-01-15",
+    transaction_type: "ride",
     status: "completed"
   },
   {
-    id: 2,
-    merchant: "Amazon",
+    transaction_id: 2,
+    merchant_name: "Amazon",
     amount: 250,
-    date: "2024-01-14",
-    type: "shopping",
+    transaction_date: "2024-01-14",
+    transaction_type: "shopping",
     status: "completed"
   },
   {
-    id: 3,
-    merchant: "Airtel Payment on PayZapp",
+    transaction_id: 3,
+    merchant_name: "Airtel Payment on PayZapp",
     amount: 450,
-    date: "2024-01-13",
-    type: "recharge",
+    transaction_date: "2024-01-13",
+    transaction_type: "recharge",
     status: "completed"
   },
   {
-    id: 4,
-    merchant: "Zepto",
+    transaction_id: 4,
+    merchant_name: "Zepto",
     amount: 300,
-    date: "2024-01-12",
-    type: "grocery",
+    transaction_date: "2024-01-12",
+    transaction_type: "grocery",
     status: "completed"
   }
 ];

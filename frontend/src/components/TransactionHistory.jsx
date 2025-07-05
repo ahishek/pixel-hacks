@@ -33,18 +33,18 @@ const TransactionHistory = ({ transactions }) => {
         Recent Transactions
       </h3>
       {transactions.map((transaction) => (
-        <Card key={transaction.id} className="p-4 hover:shadow-md transition-shadow">
+        <Card key={transaction.transaction_id || transaction.id} className="p-4 hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-lg">
-                {getTransactionIcon(transaction.type)}
+                {getTransactionIcon(transaction.transaction_type || transaction.type)}
               </div>
               <div>
                 <div className="font-semibold text-gray-800 dark:text-gray-200">
-                  {transaction.merchant}
+                  {transaction.merchant_name || transaction.merchant}
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                  {new Date(transaction.date).toLocaleDateString('en-IN', {
+                  {new Date(transaction.transaction_date || transaction.date).toLocaleDateString('en-IN', {
                     day: 'numeric',
                     month: 'short',
                     year: 'numeric'

@@ -136,10 +136,10 @@ const CCDetails = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-600 dark:text-gray-400">Unspent Amount</span>
-              <span className="text-2xl font-bold text-gray-800 dark:text-gray-200">₹{cardData?.unspent_amount || 0}</span>
+              <span className="text-2xl font-bold text-gray-800 dark:text-gray-200">₹{cardData?.unspent_amount || cardData?.unspentAmount || 0}</span>
             </div>
             <div className="flex justify-between items-center text-sm">
-              <span className="text-gray-600 dark:text-gray-400">Next Statement on {cardData?.next_statement_date}</span>
+              <span className="text-gray-600 dark:text-gray-400">Next Statement on {cardData?.next_statement_date || cardData?.nextStatementDate}</span>
               <Button variant="outline" size="sm" className="text-teal-600 border-teal-500 hover:bg-teal-50 dark:hover:bg-teal-950">
                 Pay
               </Button>
@@ -147,11 +147,11 @@ const CCDetails = () => {
             <div className="grid grid-cols-2 gap-4 pt-4 border-t">
               <div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Total Outstanding</div>
-                <div className="text-lg font-semibold text-gray-800 dark:text-gray-200">₹{cardData?.total_outstanding || 0}</div>
+                <div className="text-lg font-semibold text-gray-800 dark:text-gray-200">₹{cardData?.total_outstanding || cardData?.totalOutstanding || 0}</div>
               </div>
               <div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Available Credit</div>
-                <div className="text-lg font-semibold text-teal-600">₹{cardData?.available_limit?.toLocaleString() || 0}</div>
+                <div className="text-lg font-semibold text-teal-600">₹{(cardData?.available_limit || cardData?.availableLimit || 0).toLocaleString()}</div>
               </div>
             </div>
           </div>

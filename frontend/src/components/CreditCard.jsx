@@ -7,10 +7,12 @@ const CreditCardComponent = ({ cardData }) => {
   const [showSensitive, setShowSensitive] = useState(false);
 
   const maskCardNumber = (number) => {
+    if (!number || typeof number !== 'string') return '**** **** **** ****';
     return number.replace(/\d(?=\d{4})/g, '*');
   };
 
   const formatCardNumber = (number) => {
+    if (!number || typeof number !== 'string') return '**** **** **** ****';
     return number.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim();
   };
 
@@ -34,11 +36,12 @@ const CreditCardComponent = ({ cardData }) => {
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-2">
             <div className="text-2xl font-mono tracking-wider">
-              {showDetails ? formatCardNumber(cardData.cardNumber) : maskCardNumber(cardData.cardNumber)}
+              {showDetails ? formatCardNumber(cardData.card_number || cardData.cardNumber) : maskCardNumber(cardData.card_number || cardData.cardNumber)}
             </div>
             <button
               onClick={() => setShowDetails(!showDetails)}
               className="p-1 hover:bg-white/20 rounded-full transition-colors"
+              disabled={!cardData.card_number && !cardData.cardNumber}
             >
               {showDetails ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
@@ -48,7 +51,7 @@ const CreditCardComponent = ({ cardData }) => {
         {/* Card Holder Name */}
         <div className="mb-4">
           <div className="text-sm opacity-80 mb-1">CARD HOLDER</div>
-          <div className="font-semibold">{cardData.cardHolderName}</div>
+          <div className="font-semibold">{cardData.card_holder_name || cardData.cardHolderName}</div>
         </div>
 
         {/* Expiry and CVV */}
@@ -56,7 +59,7 @@ const CreditCardComponent = ({ cardData }) => {
           <div>
             <div className="text-sm opacity-80 mb-1">EXPIRES</div>
             <div className="font-semibold">
-              {showDetails ? '**/**' : (showSensitive ? cardData.expiryDate : '**/**')}
+              {showDetails ? '**/**' : (showSensitive ? (cardData.expiry_date || cardData.expiryDate) : '**/**')}
             </div>
           </div>
           <div>
@@ -75,9 +78,7 @@ const CreditCardComponent = ({ cardData }) => {
       </div>
 
       {/* RuPay Logo */}
-      <div className="absolute bottom-4 right-4 opacity-80">
-        <span className="text-sm font-bold">RuPay</span>
-      </div>
+      
     </Card>
   );
 };

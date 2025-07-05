@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Shield, AlertTriangle, ToggleLeft, ToggleRight } from 'lucide-react';
+import { ArrowLeft, Shield, AlertTriangle, ToggleLeft, ToggleRight, CheckCircle } from 'lucide-react';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction, AlertDialogTrigger } from '../components/ui/alert-dialog';
@@ -9,8 +9,25 @@ import { mockMerchantApps } from '../data/mock';
 const ManageTokens = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const newlyCreatedTokens = location.state?.selectedApps || [];
-  
+  const [newlyCreatedTokens, setNewlyCreatedTokens] = useState(() => {
+    const fromState = location.state?.selectedApps || [];
+    if (fromState.length > 0) {
+      localStorage.setItem('newlyCreatedTokens', JSON.stringify(fromState));
+      return fromState;
+    }
+    const fromStorage = localStorage.getItem('newlyCreatedTokens');
+    return fromStorage ? JSON.parse(fromStorage) : [];
+  });
+
+  useEffect(() => {
+    if (newlyCreatedTokens.length > 0) {
+      setTimeout(() => {
+        localStorage.removeItem('newlyCreatedTokens');
+        setNewlyCreatedTokens([]);
+      }, 3000);
+    }
+  }, []);
+
   const [tokenStates, setTokenStates] = useState(
     mockMerchantApps.reduce((acc, app) => {
       // If this app was just created, make it active, otherwise random

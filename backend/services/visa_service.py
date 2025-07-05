@@ -8,7 +8,7 @@ import json
 import uuid
 from datetime import datetime, timedelta
 from typing import Dict, List, Any
-from backend.services.mock_data import MOCK_VISA_RESPONSES, MERCHANT_APPS
+from services.mock_data import MOCK_VISA_RESPONSES, MERCHANT_APPS
 
 
 class VisaTokenManagementService:
