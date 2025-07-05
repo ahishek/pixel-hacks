@@ -88,19 +88,19 @@ const SuccessState = () => {
           {/* Action Buttons */}
           <div className="space-y-3">
             <Button
-              onClick={handleContinue}
+              onClick={handleManageTokens}
               className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold py-3 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              Continue to Card Details
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <Settings className="w-4 h-4 mr-2" />
+              Manage Your Saved Cards
             </Button>
             <Button
-              onClick={handleManageTokens}
+              onClick={handleContinue}
               variant="outline"
               className="w-full border-teal-500 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-950 font-semibold py-3 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              <Settings className="w-4 h-4 mr-2" />
-              Manage Tokens
+              Back to Card Details
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
 
