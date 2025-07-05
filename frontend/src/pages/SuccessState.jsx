@@ -106,7 +106,7 @@ const SuccessState = () => {
 
           {/* Footer Note */}
           <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
-            You can enable or disable these tokens anytime from the "Manage Tokens" section
+            Your cards are now saved securely. You can enable or disable them anytime from "Manage Your Saved Cards"
           </div>
         </div>
       </Card>
