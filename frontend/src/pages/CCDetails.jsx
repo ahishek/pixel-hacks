@@ -37,7 +37,7 @@ const CCDetails = () => {
       <div className="p-4 space-y-6">
         {/* Credit Card */}
         <div className="transform hover:scale-105 transition-transform duration-300">
-          <CreditCard cardData={mockCardData} />
+          <CreditCardComponent cardData={mockCardData} />
         </div>
 
         {/* Action Buttons */}
