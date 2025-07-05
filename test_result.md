@@ -101,3 +101,100 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the newly created Credit Card Token Management backend APIs. I've implemented several endpoints following the Visa TMS push provisioning workflow."
+
+backend:
+  - task: "GET /api/cards/details - Get card details"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/cards.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Fixed field name mismatch between mock data and Pydantic model. The endpoint now correctly returns card details with proper field names."
+
+  - task: "GET /api/cards/transactions - Get transaction history"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/cards.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Endpoint works correctly. Returns paginated transaction history with proper response structure."
+
+  - task: "GET /api/push-provisioning/merchants - Get available merchant apps"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/push_provisioning.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Endpoint works correctly. Returns list of available merchant apps with proper response structure."
+
+  - task: "POST /api/push-provisioning - Create push provisioning request"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/push_provisioning.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Endpoint works correctly. Accepts valid merchant app IDs and returns proper response. Also correctly handles invalid merchant IDs with 400 error."
+
+  - task: "GET /api/tokens - List user tokens"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/tokens.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Fixed field name mismatch between mock data and Pydantic model. The endpoint now correctly returns token list with proper field names."
+
+  - task: "PUT /api/tokens/{token_id} - Update token status"
+    implemented: true
+    working: true
+    file: "/app/backend/routes/tokens.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Endpoint works correctly. Successfully updates token status to INACTIVE and back to ACTIVE."
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "GET /api/cards/details - Get card details"
+    - "GET /api/cards/transactions - Get transaction history"
+    - "GET /api/push-provisioning/merchants - Get available merchant apps"
+    - "POST /api/push-provisioning - Create push provisioning request"
+    - "GET /api/tokens - List user tokens"
+    - "PUT /api/tokens/{token_id} - Update token status"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "I've tested all the backend APIs for the Credit Card Token Management system. Initially, there were issues with field name mismatches between the mock data and Pydantic models for the card details and tokens endpoints. I fixed these issues by converting camelCase field names to snake_case in the API responses. After the fixes, all endpoints are working correctly with 100% pass rate."
