@@ -61,7 +61,7 @@ const SuccessState = () => {
           <div className="space-y-4">
             <div className="text-left">
               <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">
-                Tokens created for:
+                Your card is now saved on:
               </h3>
               <div className="space-y-2">
                 {selectedMerchantApps.map((app) => (
@@ -75,7 +75,7 @@ const SuccessState = () => {
                         {app.name}
                       </div>
                       <div className="text-sm text-green-600 dark:text-green-400">
-                        Token active
+                        Ready for payments
                       </div>
                     </div>
                     <CheckCircle className="w-5 h-5 text-green-500" />
