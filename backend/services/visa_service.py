@@ -101,12 +101,13 @@ class VisaTokenManagementService:
         mock_tokens = []
         for i, app in enumerate(MERCHANT_APPS[:5]):  # Return first 5 apps with tokens
             mock_tokens.append({
-                "tokenReferenceId": f"TKN_{str(uuid.uuid4())[:8].upper()}",
-                "merchantId": app["merchant_id"],
-                "merchantName": app["name"],
-                "tokenStatus": "ACTIVE" if i % 2 == 0 else "INACTIVE",
-                "createdTimestamp": (datetime.utcnow() - timedelta(days=i*10)).isoformat(),
-                "lastUsedTimestamp": (datetime.utcnow() - timedelta(days=i)).isoformat() if i % 2 == 0 else None
+                "token_reference_id": f"TKN_{str(uuid.uuid4())[:8].upper()}",
+                "merchant_id": app["merchant_id"],
+                "merchant_name": app["name"],
+                "token_status": "ACTIVE" if i % 2 == 0 else "INACTIVE",
+                "created_timestamp": (datetime.utcnow() - timedelta(days=i*10)),
+                "last_used_timestamp": (datetime.utcnow() - timedelta(days=i)) if i % 2 == 0 else None,
+                "token_expiry_date": (datetime.utcnow() + timedelta(days=1095)).strftime("%Y%m")
             })
         
         return {
